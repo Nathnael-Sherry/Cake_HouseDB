@@ -33,7 +33,7 @@ def insertData(request):
         orderdate = request.POST.get('orderdate')
         deliverydate = request.POST.get('deliverydate')
 
-        query = Client(name=name, email=email, caketype=caketype, quantity=quantity, price=price, phone=phone, orderdate=orderdate, deliverdate=deliverydate)
+        query = Client(name=name, caketype=caketype, quantity=quantity, price=price, phone=phone, orderdate=orderdate, deliverydate=deliverydate)
         query.save()
         return redirect("/")
 
