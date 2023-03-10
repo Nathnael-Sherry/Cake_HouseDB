@@ -25,7 +25,8 @@ def signup_page(request):
 def insertData(request):
     if request.method == "POST":
         name = request.POST.get('name')
-        # email = request.POST.get('email')
+        age = request.POST.get('age')
+        event = request.POST.get('event')
         caketype = request.POST.get('caketype')
         quantity = request.POST.get('quantity')
         price = request.POST.get('price')
@@ -33,7 +34,7 @@ def insertData(request):
         orderdate = request.POST.get('orderdate')
         deliverydate = request.POST.get('deliverydate')
 
-        query = Client(name=name, caketype=caketype, quantity=quantity, price=price, phone=phone, orderdate=orderdate, deliverydate=deliverydate)
+        query = Client(name=name, caketype=caketype, age=age, event=event, quantity=quantity, price=price, phone=phone, orderdate=orderdate, deliverydate=deliverydate)
         query.save()
         return redirect("/")
 
@@ -50,7 +51,8 @@ def deleteData(request, id):
 def updateData(request, id):
     if request.method == "POST":
         name = request.POST.get('name')
-        # email = request.POST.get('email')
+        age = request.POST.get('age')
+        event = request.POST.get('event')
         caketype = request.POST.get('caketype')
         quantity = request.POST.get('quantity')
         price = request.POST.get('price')
@@ -60,7 +62,8 @@ def updateData(request, id):
 
         update_info = Student.objects.get(id=id)
         update_info.name = name
-        # update_info.email = email
+        update_info.age = age
+        update_info.event = event
         update_info.caketype = caketype
         update_info.quantity = quantity
         update_info.price = price
